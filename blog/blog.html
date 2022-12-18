@@ -461,7 +461,7 @@ h5,h6{font-size:1em;}
         </div>
       </div>
     </div>
-    <div class="ui bottom attached segment">
+    <div id="comment-container" class="ui bottom attached segment">
       <div class="ui segment">
         <div class="ui minimal comments">
           <h3 class="ui dividing header">Comments</h3>
@@ -565,6 +565,18 @@ h5,h6{font-size:1em;}
   </div>
 </div>
 
+<div class="padding-all m-absolute right-bottom">
+  <div class="ui vertical icon buttons ">
+  <a href="#comment-container" class="ui teal basic button">评论</a>
+    <button class="ui wechat icon button"><i class="weixin icon"></i></button>
+  <div id="toTopButton" class="ui icon button"><i class="chevron up icon"></i></div>
+</div>
+</div>
+
+<div id="qrcode" class="ui wechat-qr flowing popup transition hidden" style="width: 130px !important;">
+
+</div>
+
 
 <br>
 <!--底部栏目-->
@@ -614,9 +626,30 @@ h5,h6{font-size:1em;}
 <script src="./static/jquery/jquery-1.11.1-min.js"></script>
 <script src="./static/semanticui/semantic.min.js"></script>
 <script src="./static/lib/prism/prism.js"></script>
+<script src="./static/lib/qrcode/qrcode.min.js"></script>
+<script src="./static/lib/scrollTo/jquery.scrollTo.min.js"></script>
 <script>
   $('.menu.toggle').click(function (){
     $('.my-item').toggleClass('mobile-hide');
+  });
+
+  $('.wechat').popup({
+
+    popup:$('.wechat-qr'),
+    position:'bottom center',
+  })
+
+  var qrcode = new QRCode("qrcode", {
+    text: "http://jindo.dev.naver.com/collie",
+    width: 110,
+    height: 110,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+  });
+
+  $('#toTopButton').click(function (){
+    $(window).scrollTo(0,1000)
   });
 </script>
 </body>

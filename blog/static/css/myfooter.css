@@ -75,3 +75,17 @@ body{
 .write-blog{
     margin-left: 29em!important;
 }
+
+
+.m-absolute{
+    position: fixed!important;
+    z-index: 1!important;
+}
+
+.right-bottom{
+    bottom: 0!important;
+    right: 0!important;
+}
+.padding-all{
+    padding: 1em!important;
+}
